@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XN | مركز رفع الصور</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <div class="background-blobs"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">✨</div>
+                <h1>رفع الصور الذكي</h1>
+            </div>
+            <p class="subtitle">ارفع صورك بسرعة وبجودة عالية في سحابة Supabase</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div id="drop-zone" class="drop-zone">
+                    <div class="drop-zone-content">
+                        <div class="upload-icon">📤</div>
+                        <p>اسحب الصورة هنا أو اضغط للاختيار</p>
+                        <button type="button" class="upload-btn">اختر صورة</button>
+                        <span class="file-info">PNG, JPG, WEBP (بحد أقصى 5MB)</span>
+                    </div>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+
+                <div id="upload-status" class="upload-status hidden">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <p id="status-message">جاري الرفع...</p>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <div class="section-header">
+                    <h2>أحدث الصور المرفوعة</h2>
+                    <button id="refresh-btn" class="refresh-btn">🔄 تحديث</button>
+                </div>
+                <div id="image-gallery" class="image-gallery">
+                    <!-- Images will be loaded here -->
+                    <div class="loader">جاري تحميل المعرض...</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>XN &copy; 2026 - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- Modal for viewing image -->
+    <div id="image-modal" class="modal hidden">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
